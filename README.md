@@ -1,5 +1,5 @@
 # Reskill Java Group
-Shared repository and Java project for all students in the Java group. 
+Shared repository and Java project for all students in the Java group. This is the version where each student has separated MODULES.
 
 # Intention of shared repository
 Simple sharing of code, helping each other and also train using GIT.
@@ -16,7 +16,7 @@ All commands are ment to be written in the **Command line/terminal**. A UI appli
 
 ### Clone this repository to your local machine
 (Will create a folder "ReskillJavaGroup" in the location you're when running the clone command)\
-``git clone https://github.com/ZiggyHowland/ReskillJavaGroup.git``
+``git clone https://github.com/ZiggyHowland/ReskillJavaGroup_Modules.git``
 
 ### Open project in IntelliJ
 Open project in IntelliJ and verify you can run the code in your package.
@@ -53,13 +53,7 @@ It's always good practice (good habit) to pull last changes from GitHub both bef
 ``git push`` - Uploads your changes and make them available for the rest of the Java group.
 
 # Folder/Package structure
-The 'src' folder contains a package 'dnb.reskill' and then you'll find one package per student (ex. 'arild', 'knut', 'marina', etc...)\
-\
-The structure inside your package is free to do as you like it, but since we're having labs daily it could be reasonable to add one package per day or date.\
-\- src\
--- dnb.reskill\
---- arild \
----- day 11 (your daily code in here)
+The project contains one module per student, and each module has their own src- (and test-folders). No other package names are predefined.
     
 # Issues and problems
 In the perfect world all commands work as they should, always. You will face some trouble along the way. There is a lot of situations appearing in GIT, due to file conflicts, different branches, code versions and so on. Just keep smiling, google it, discuss with the rest of group and it will be solved in the end.
