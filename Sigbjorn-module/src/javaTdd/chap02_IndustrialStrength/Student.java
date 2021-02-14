@@ -9,12 +9,12 @@ public class Student {
     private int availableRoomSlots;
 
     private static final int MINIMUM_SLOT_AVAILABILITY = 1;
-    private static final int DEFAULT_SLOT_AVAILABILITY = 6;
+    private static final int MAXIMUM_SLOT_AVAILABILITY = 6;
 
     public Student(String id, String name) {
         this.id = id;
         this.name = name;
-        this.availableRoomSlots = DEFAULT_SLOT_AVAILABILITY;
+        this.availableRoomSlots = MAXIMUM_SLOT_AVAILABILITY;
     }
 
     public boolean bookSlot() {
@@ -28,7 +28,7 @@ public class Student {
     }
 
     public boolean releaseSlot() {
-        if (this.availableRoomSlots < DEFAULT_SLOT_AVAILABILITY) {
+        if (this.availableRoomSlots < MAXIMUM_SLOT_AVAILABILITY) {
             this.availableRoomSlots++;
             return true;
         }
@@ -47,6 +47,10 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    public static int getMaximumSlotAvailability() {
+        return MAXIMUM_SLOT_AVAILABILITY;
     }
 }
 
