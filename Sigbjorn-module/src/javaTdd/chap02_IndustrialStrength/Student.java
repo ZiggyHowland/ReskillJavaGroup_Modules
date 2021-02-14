@@ -1,4 +1,4 @@
-package javaTdd.chap02_IndustrialStrength.src;
+package javaTdd.chap02_IndustrialStrength;
 
 import lombok.ToString;
 
@@ -39,6 +39,14 @@ public class Student {
 
     public int getAvailableRoomSlots() {
         return availableRoomSlots;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 
