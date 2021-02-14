@@ -1,6 +1,6 @@
 package javaTdd.chap02_industrialStrength;
 
-import javaTdd.chap02_IndustrialStrength.src.Student;
+import javaTdd.chap02_IndustrialStrength.Student;
 //import org.junit.Assert; // => Assert.assertEqual
 import static org.junit.Assert.*; // => assertEqual
 import org.junit.Before;
