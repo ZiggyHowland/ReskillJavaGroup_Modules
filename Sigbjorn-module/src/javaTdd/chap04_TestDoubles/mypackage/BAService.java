@@ -25,7 +25,6 @@ public class BAService {
     }
 
     public void withdrawFromAccount() {
-
     	int id = ui.promptForInteger("Account id");
 
     	BankAccount acc = restClient.getById(id);
@@ -40,7 +39,6 @@ public class BAService {
 
 
     public void transferFunds() {
-
     	int id1 = ui.promptForInteger("Account id #1");
     	int id2 = ui.promptForInteger("Account id #2");
 
