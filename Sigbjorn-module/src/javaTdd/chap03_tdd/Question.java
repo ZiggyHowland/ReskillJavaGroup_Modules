@@ -8,9 +8,12 @@ public class Question {
     private int userId;
     private String title;
     private String message;
+    private boolean closed;
     private int votes;
     private User user;
     private static final int USER_RATINGS_PER_VOTE = 2;
+
+    public enum VoteType { UP, DOWN };
 
 
     public Question() {
@@ -21,10 +24,29 @@ public class Question {
     /*
     Biz methods
      */
-    public void vote() {
-        votes++;
-        this.user.increaseRating(USER_RATINGS_PER_VOTE);
+    public void vote(VoteType voteType) {
+        if (!this.isClosed()) {
+            if (voteType == VoteType.UP)
+                voteUp();
+            else
+                voteDown();
+        }
+        else {
+            throw new QuestionException("The question is closed. No voting allowed.", this.id);
+        }
     }
+
+
+    private void voteUp() {
+        votes++;
+        this.user.changeRating(USER_RATINGS_PER_VOTE);
+    }
+
+    private void voteDown() {
+        votes--;
+        this.user.changeRating(-USER_RATINGS_PER_VOTE);
+    }
+
 
 
     /*
@@ -69,5 +91,13 @@ public class Question {
 
     public User getUser() {
         return user;
+    }
+
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
     }
 }

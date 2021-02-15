@@ -13,8 +13,8 @@ public class User {
     /*
     Biz methods
      */
-    public void increaseRating(int increment) {
-        this.rating += increment;
+    public void changeRating(int change) {
+        this.rating += change;
     }
 
 
