@@ -1,4 +1,4 @@
-package exceptionsassertions;
+package dnb.reskill.tom.exceptionsassertions;
 
 import java.util.Scanner;
 import java.util.Collection;

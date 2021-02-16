@@ -1,4 +1,4 @@
-package CollectionsAndGenericsLab;
+package dnb.reskill.tom.CollectionsAndGenericsLab;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

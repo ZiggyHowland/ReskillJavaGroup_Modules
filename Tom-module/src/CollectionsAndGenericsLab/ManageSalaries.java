@@ -1,4 +1,4 @@
-package CollectionsAndGenericsLab;
+package dnb.reskill.tom.CollectionsAndGenericsLab;
 
 import java.util.LinkedList;
 import java.util.TreeMap;
