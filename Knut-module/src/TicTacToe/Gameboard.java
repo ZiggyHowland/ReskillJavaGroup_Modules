@@ -2,9 +2,6 @@ package TicTacToe;
 
 import java.util.HashMap;
 
-
-// ANDY: Generally this class looks good. A few specific points, see my comments. 
-// Be a bit more frugal with the amount of blanks lines, and be more consistent with indentation. I've fixed bits where I can.
 public class Gameboard {
 
     private HashMap<String, String> gameMap = new HashMap<>();
@@ -14,8 +11,6 @@ public class Gameboard {
         return gameMap;
     }
 
-    // ANDY: This used to be the hashmap() function, it's better to do this in the constructor when the object is created.
-    //hashmap (gameboard) is populated
     public Gameboard() {
         gameMap.put("a1", "_");
         gameMap.put("a2", "_");
@@ -26,14 +21,12 @@ public class Gameboard {
         gameMap.put("c1", "_");
         gameMap.put("c2", "_");
         gameMap.put("c3", "_");
-
     }
 
     public HashMap<Integer, String> getCheckIfVictoryList() {
         return checkIfVictoryList;
     }
 
-    // ANDY: I tweaked your comment.
     // Returns a string for the current gameboard, including updates from editBoard
     public String printBoardAsString() {
         return String.format("\n  A B C \n1 %s %s %s \n2 %s %s %s \n3 %s %s %s \n",
@@ -70,17 +63,16 @@ public class Gameboard {
 
 
     //checks for three in a row:
-    private String checkIfVictory(String board) {
+    public String checkIfVictory(String board) {
 
         comparisonWinCondition();
 
-        for (int i = 1; i < 8; i=i+3) {
+        for (int i = 1; i < 24; i=i+3) {
 
             if (checkIfVictoryList.get(i+0).equals(checkIfVictoryList.get(i+1))) {
                 if (checkIfVictoryList.get(i+1).equals(checkIfVictoryList.get(i+2))) {
                     if (!checkIfVictoryList.get(i+1).equals("_")) {
                         System.out.println(board);
-                        System.out.println("it works!");
                         return ("Victory");
                     }
                 }
@@ -98,7 +90,6 @@ public class Gameboard {
     private void comparisonWinCondition() {
 
         //list of possible win positions, in sets of threes (ie 1-3, 4-6, ..)
-
         checkIfVictoryList.put(1, gameMap.get("a1"));
         checkIfVictoryList.put(2, gameMap.get("a2"));
         checkIfVictoryList.put(3, gameMap.get("a3"));
@@ -123,8 +114,6 @@ public class Gameboard {
         checkIfVictoryList.put(22, gameMap.get("c3"));
         checkIfVictoryList.put(23, gameMap.get("b2"));
         checkIfVictoryList.put(24, gameMap.get("c1"));
-
-        //String [] vicList = ()
     }
 }
 
