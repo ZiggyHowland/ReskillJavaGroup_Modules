@@ -1,5 +1,7 @@
 package javaTdd.chap04_hilogame;
 
+import javaTdd.chap04_hilogame.dependencies.NextGuessGenerator;
+import javaTdd.chap04_hilogame.dependencies.RandomNumberGenerator;
 import javaTdd.chap04_hilogame.dependencies.SecretNumber;
 import javaTdd.chap04_hilogame.dependencies.UserGuess;
 
@@ -7,14 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HiLoGame0 {
-	public static final int UPPER_LIMIT = 100;
 	public static final String CORRECT_STRING = "Correct! ";
-	private SecretNumber secretNumber;
-	private UserGuess userGuess;
+	private RandomNumberGenerator secretNumber;
+	private NextGuessGenerator userGuess;
 	private List<Integer> guesses;
 
 
-	public HiLoGame0(SecretNumber sn, UserGuess ug) { // Dependecy injection (reals or stubs)
+	public HiLoGame0(RandomNumberGenerator sn, NextGuessGenerator ug) { // Dependecy injection (reals or stubs)
 		// External dependencies
 		this.secretNumber = sn;
 		this.userGuess = ug;
@@ -24,10 +25,10 @@ public class HiLoGame0 {
 	}
 
 
-	public void start() {
-		int magicNumber = this.secretNumber.createSecretNumber(UPPER_LIMIT);
+	public String start(int upperLimit) {
+		int magicNumber = this.secretNumber.createSecretNumber(upperLimit);
 		int thisGuess;
-		printToConsole(String.format("Guess a number between 1 and %d: ", UPPER_LIMIT));
+		printToConsole(String.format("Guess a number between 1 and %d: ", upperLimit));
 
 		while (true) {
 			thisGuess = this.userGuess.nextGuess();
@@ -39,11 +40,14 @@ public class HiLoGame0 {
 			}
 		}
 
-		printToConsole(getSummaryString());
+		String summaryString = getSummaryString(this.guesses);
+		printToConsole(summaryString);
+		return summaryString; // For testing purposes
+
 
 	}
 
-	private String evaluateGuess(int thisGuess, int magicNumber) {
+	public String evaluateGuess(int thisGuess, int magicNumber) {
 		if (thisGuess > magicNumber) {
 			return "Lower! ";
 		}
@@ -55,10 +59,10 @@ public class HiLoGame0 {
 		}
 	}
 
-	private String getSummaryString() {
+	public String getSummaryString(List<Integer> guesses) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("You took %d guesses: ", this.guesses.size()));
-		for (int n : this.guesses) {
+		sb.append(String.format("You took %d guesses: ", guesses.size()));
+		for (int n : guesses) {
 			sb.append(String.format("%d ", n));
 		}
 		return sb.toString();

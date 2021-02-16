@@ -11,6 +11,6 @@ public class Client {
 
         // Create object
         HiLoGame0 game = new HiLoGame0(sn, ug);
-        game.start();
+        game.start(100);
     }
 }
