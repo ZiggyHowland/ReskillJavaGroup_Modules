@@ -5,15 +5,8 @@ import java.io.Serializable;
 
 public class QuestionException extends RuntimeException implements Serializable {
 
-    public QuestionException() {
-    }
-
     public QuestionException(String message) {
         super(message);
-    }
-
-    public QuestionException(String message, Exception inner) {
-        super(message,inner);
     }
 
 }
