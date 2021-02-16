@@ -23,6 +23,8 @@ public class Question {
             user.rating = user.rating + 10;
             votes++;
         }
+        // ANDY: You need an "else if" to ensure you don't do any of the rest of the logic if the first "if" statement is true.
+        // This explains why you're getting an exception in your test - it's because the 2nd "if" statement fails so it then goes into the "else" part. 
         if (!likeQuestion && isOpen) {
             // ANDY: Ditto
             user.rating = user.rating - 10;
