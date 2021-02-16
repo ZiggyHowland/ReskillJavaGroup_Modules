@@ -22,10 +22,14 @@ public class Menu {
 
         boolean activeMenu = true;
         System.out.println(gameboard.printBoardAsString());
+        
+        // ANDY: I'm not sure why you need this outer loop? As soon as you've done 1 iteration, you "break" (see line 64). So can you get rid of this loop?
         while (activeMenu) {
 
             boolean menuLoop = true;
             int i = 2;
+            
+            // ANDY: No need for menuLoop variable, you can just loop while(true). See my comments on line 55 and 60.
             while (menuLoop) {
 
                 // if turncount is even: player 1, if odd: player 2
@@ -45,13 +49,15 @@ public class Menu {
                 } else {
                     updateBoard = validInput_updateGameboard(select);
 
-
+                    // ANDY: You can delete the parentheses around ("Victory").
                     if (updateBoard == ("Victory")) {
                         System.out.printf("\nCongratulations %s! \nThree %s's in a row.\n", player, playerSymbol);
+                        // ANDY: No need for menuLoop variable - the "break" does the trick.
                         menuLoop = false;
                         break;
                     }
                     if (updateBoard == ("Draw")) {
+                        // ANDY: Ditto.
                         menuLoop = false;
                         break;
                     }
@@ -75,6 +81,8 @@ public class Menu {
     }
 
     public String getInputFromUser() {
+        // ANDY: Can simplify as follows:
+        // return ui.inputFromUser().toLowerCase();
         String select = ui.inputFromUser().toLowerCase();
         return select;
     }
