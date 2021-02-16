@@ -46,9 +46,16 @@ Gameboard gameboard;
 
         fixture.setPlayer1or2_followTurnCount(6);
 
+        // ANDY: I think it would be ok to keep these as 2 separate calls:
+        // String actualPlayer = fixture.getPlayer();
+        // String actualSymbol = fixture.getPlayerSymbol();
+        
         String expected = "Player 1X";
         String actual = (fixture.getPlayer()+fixture.getPlayerSymbol());
 
+        // ANDY: Then you could have 2 asserts. I think this is ok here.
+        // Assert.assertEquals("Player 1", actualPlayer);
+        // Assert.assertEquals("X", actualSymbol);
         Assert.assertEquals(expected, actual);
     }
     @Test
@@ -56,6 +63,7 @@ Gameboard gameboard;
 
         fixture.setPlayer1or2_followTurnCount(7);
 
+        // ANDY: See my comments in turnCountEvenSetsPlayer1() about how you could make this code simpler.
         String expected = "Player 2O";
         String actual = (fixture.getPlayer()+fixture.getPlayerSymbol());
 
@@ -72,6 +80,20 @@ Gameboard gameboard;
     @Test
     public void fullGameVictoryPlayer1(){
 
+        // ANDY: You can use a more fluid style for cascading function calls:
+        /*
+        when(mockUiFromConsole.inputFromUser())
+            .thenReturn("c3")
+            .thenReturn("a1")
+            .thenReturn("b2")
+            .thenReturn("c1")
+            .thenReturn("B1")
+            .thenReturn("a3")
+            .thenReturn("a2")
+            .thenReturn("c2")
+            .thenReturn("b3");
+        */
+        
         when(mockUiFromConsole.inputFromUser()).thenReturn("c3").thenReturn("a1")
         .thenReturn("b2").thenReturn("c1").thenReturn("B1").thenReturn("a3")
         .thenReturn("a2").thenReturn("c2").thenReturn("b3");
@@ -90,9 +112,12 @@ Gameboard gameboard;
         when(mockUiFromConsole.inputFromUser()).thenReturn("c3").thenReturn("a1")
         .thenReturn("b3").thenReturn("c1").thenReturn("b2").thenReturn("b1");
 
+        // ANDY: The mainMenu() function should be renamed to be a verb.
         fixture.mainMenu();
 
         String expected = "Victory";
+        
+        // ANDY: You should never have public data.
         String actual = fixture.updateBoard;
 
         Assert.assertEquals(expected, actual);
