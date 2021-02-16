@@ -65,8 +65,10 @@ public class Gameboard {
     //checks for three in a row:
     public String checkIfVictory(String board) {
 
+        // ANDY: This is unclear to me. Method names should always be verbs, to adopt the "active voice".
         comparisonWinCondition();
 
+        // ANDY: What is 24? Replace with a static final variable?
         for (int i = 1; i < 24; i=i+3) {
 
             if (checkIfVictoryList.get(i+0).equals(checkIfVictoryList.get(i+1))) {
@@ -84,12 +86,14 @@ public class Gameboard {
         if (!gameMap.containsValue("_")){
             return ("Draw");
         }
+        // ANDY: What does this mean? Would it be clearer to return an actual string, e.g. "GameStillGoing" or similar?
         return null;
     }
 
     private void comparisonWinCondition() {
 
         //list of possible win positions, in sets of threes (ie 1-3, 4-6, ..)
+        // ANDY: THis isn't clear to me. Can you add a more detailed comment, because this is crucial.
         checkIfVictoryList.put(1, gameMap.get("a1"));
         checkIfVictoryList.put(2, gameMap.get("a2"));
         checkIfVictoryList.put(3, gameMap.get("a3"));
