@@ -24,19 +24,21 @@ public class Student {
         return Id;
     }
 
-    public void bookSlot() {
+    public boolean bookSlot() {
         if (roomSlotsAvailable > 0) {
             roomSlotsAvailable--;
+            return true;
         } else {
-            System.out.println("Sorry, you have used your 6 slots to book rooms.\n");
+            return false;
         }
     }
 
-    public void releaseSlot() {
+    public boolean releaseSlot() {
         if (roomSlotsAvailable < 6) {
             roomSlotsAvailable++;
+            return true;
         } else {
-            System.out.println("You have already canceled all your room bookings.\n");
+            return false;
         }
     }
 
