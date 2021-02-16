@@ -19,17 +19,22 @@ public class Question {
 
     public void vote(boolean likeQuestion) {
         if (likeQuestion && isOpen) {
+            // ANDY: Should use static final variable instead of magic number 10.
             user.rating = user.rating + 10;
             votes++;
         }
         if (!likeQuestion && isOpen) {
+            // ANDY: Ditto
             user.rating = user.rating - 10;
             votes--;
         } else {
+            // ANDY: Whoever calls vote() will have to catch it. 
+            // Also note, QuestionException inherits from RuntimeException, which means it's not a "checked" exception, which means the compiler won't enfore that you catch it.
             throw new QuestionException("The question is closed and cannot be voted on.\n"); //Why do we not have to catch this exception
         }
     }
-
+    
+    // ANDY: I would actually remove some of these getters/setters.
     public int getQuestionId() {
         return questionId;
     }
