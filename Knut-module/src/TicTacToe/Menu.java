@@ -12,7 +12,9 @@ public class Menu {
     private String playerSymbol = "X";
     private Ui ui;
 
+    // ANDY: Never have public data (!)
     public String updateBoard;
+    
     public Menu(Ui c) {
         this.ui = c;
     }
