@@ -1,4 +1,4 @@
-package InheritanceAndInterfaces;
+package dnb.reskill.tom.InheritanceAndInterfaces;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

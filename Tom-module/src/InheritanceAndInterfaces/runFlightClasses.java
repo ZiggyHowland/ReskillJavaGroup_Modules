@@ -1,4 +1,4 @@
-package InheritanceAndInterfaces;
+package dnb.reskill.tom.InheritanceAndInterfaces;
 
 public class runFlightClasses {
     public static void main(String[] args) {
