@@ -10,8 +10,7 @@ public class RoomManager {
     private Student[][] roomBookings = new Student[DAYS][TIME_SLOTS];
     private static int[] timeIndexMapping = {9, 10, 11, 12, 13, 14, 15, 16};
 
-    // ANDY: I might rename as bookSlot(). Also see line 37 below...
-    public boolean bookAnySlot(Student student, int day) {
+    public boolean bookSlot(Student student, int day) {
         if (student.bookSlot()) {
             int firstAvailableTime = getFirstAvailableTimeOnDay(day);
             roomBookings[day][firstAvailableTime] = student;
@@ -33,8 +32,7 @@ public class RoomManager {
         return roomBookings[day][time] == null;
     }
 
-    // ANDY: I might rename as bookSlot() also. So we have 2 overloaded methods named bookSlot().
-    public void bookSpecificSlotAndDay(Student student, int day, int time) {
+    public void bookSlot(Student student, int day, int time) {
         if (student.bookSlot() && isRoomAvailableAtGivenTime(day, time)) {
             roomBookings[day][time] = student;
         }
@@ -54,7 +52,7 @@ public class RoomManager {
                 if (!(isRoomAvailableAtGivenTime(r, c))) {
                     // ANDY: I dont understand the return statement here - this will exit the method immediately. I don't think that's what you want to do...?
                     return sb.append(String.format("-Time slot %d\n", timeIndexMapping[c])).toString();             //How could I print the name of the student too?
-                    // ANDY: to get the name of the student, cany you do this: 
+                    // ANDY: to get the name of the student, cany you do this:
                     // Student student = roomBookings[r][c];
                     // String studentName = student.getName();  // Or similar...
                 }
