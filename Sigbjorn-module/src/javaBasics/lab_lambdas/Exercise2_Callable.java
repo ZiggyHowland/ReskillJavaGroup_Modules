@@ -14,24 +14,9 @@ public class Exercise2_Callable {
 
         // Create a list of objects that implement Callable<String> the traditional way.
         List<Callable<String>> list = Arrays.asList(
-                
-        		new Callable<String>() { 
-                	public String call() {
-                		return "This is the result from callable #1";
-                	}
-                },
-                
-        		new Callable<String>() { 
-                	public String call() {
-                		return "This is the result from callable #2";
-                	}
-                },
-                
-        		new Callable<String>() { 
-                	public String call() {
-                		return "This is the result from callable #3";
-                	}
-                }
+                () -> "This is the result from callable #1",
+                () -> "This is the result from callable #2",
+                () -> "This is the result from callable #3"
         );
         
         // Create an ExecutorService, invoke all the callable tasks, and get their results.

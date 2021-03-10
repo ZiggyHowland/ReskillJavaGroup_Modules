@@ -17,23 +17,12 @@ public class Exercise3_Comparator {
         
         
         // Part 1: Create a Comparator<Person> first, and then pass it to sort().
-        Comparator<Person> c1 = new Comparator<Person>() {
-        	@Override
-        	public int compare(Person p1, Person p2) {
-        		return p1.getAge() - p2.getAge();
-        	}
-        };
-        Collections.sort(people, c1);
+        Collections.sort(people, (p1, p2) -> p1.getAge() - p2.getAge());
         displayPeople("Sorted by age", people);
         
         
         // Part 2: Create a Comparator<Person> and pass it to sort()  directly.
-        Collections.sort(people, new Comparator<Person>() {
-        	@Override
-        	public int compare(Person p1, Person p2) {
-        		return p1.getName().compareTo(p2.getName());
-        	}
-        });
+        Collections.sort(people, (p1, p2) -> p1.getName().compareTo(p2.getName()));
         displayPeople("Sorted by name", people);
     }
     
