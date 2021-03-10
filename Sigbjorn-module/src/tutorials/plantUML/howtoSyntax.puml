@@ -1,0 +1,167 @@
+@startuml
+' Declaring elements
+abstract        abstract
+abstract class  "abstract class"
+annotation      annotation
+circle          circle
+()              circle_short_form
+class           class
+diamond         diamond
+<>              diamond_short_form
+entity          entity
+enum            enum
+interface       interface
+@enduml
+
+@startuml
+' Relations between classes #1
+Class01 <|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+@enduml
+
+@startuml
+' Relations between classes #2
+Class11 <|.. Class12
+Class13 --> Class14
+Class15 ..> Class16
+Class17 ..|> Class18
+Class19 <--* Class20
+@enduml
+
+@startuml
+' Relations between classes #3
+Class21 #-- Class22
+Class23 x-- Class24
+Class25 }-- Class26
+Class27 +-- Class28
+Class29 ^-- Class30
+@enduml
+
+@startuml
+' Labels on relations
+Class01 "1" *-- "many" Class02 : contains
+Class03 o-- Class04 : aggregation
+Class05 --> "1" Class06
+@enduml
+
+
+@startuml
+' Labels on relation (with arrows)
+class Car
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+@enduml
+
+@startuml
+' Methods #1
+Object <|-- ArrayList
+Object : equals()
+ArrayList : Object[] elementData
+ArrayList : size()
+@enduml
+
+
+@startuml
+' Methods #2 (brackets)
+class Dummy {
+  String data
+  void methods()
+}
+class Flight {
+   flightNumber : Integer
+   departureTime : Date
+}
+@enduml
+
+@startuml
+' Methods #3 (field/method overriding)
+class Dummy {
+  {field} A field (despite parentheses)
+  {method} Some method
+}
+@enduml
+
+
+@startuml
+' Visibility
+class Dummy {
+ -private_Field
+ #protected_Field
+ +public_Field
+ ~packagePrivate_Method()
+ +public_Method()
+}
+@enduml,
+
+@startuml
+' Visibility (no icons)
+skinparam classAttributeIconSize 0
+class Dummy {
+ -field1
+ #field2
+ ~method1()
+ +method2()
+}
+@enduml
+
+
+@startuml
+' Abstract and static
+class Dummy {
+  {static} String id
+  {abstract} void methods()
+}
+@enduml
+
+
+@startuml
+' Advanced class body
+class Foo1 {
+  You can use
+  several lines
+  ..
+  as you want
+  and group
+  ==
+  things together.
+  __
+  You can have as many groups
+  as you want
+  --
+  End of class
+}
+
+class User {
+  .. Simple Getter ..
+  + getName()
+  + getAddress()
+  .. Some setter ..
+  + setName()
+  __ private data __
+  int age
+  -- encrypted --
+  String password
+}
+@enduml
+
+
+@startuml
+' Notes and stereotypes
+class Object << general >>
+Object <|--- ArrayList
+
+note top of Object : In java, every class\nextends this one.
+
+note "This is a floating note" as N1
+note "This note is connected\nto several objects." as N2
+Object .. N2
+N2 .. ArrayList
+
+class Foo
+note left: On last defined class
+
+@enduml
