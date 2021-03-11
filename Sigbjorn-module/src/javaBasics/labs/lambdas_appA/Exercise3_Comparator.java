@@ -1,8 +1,7 @@
-package javaBasics.lab_lambdas;
+package javaBasics.labs.lambdas_appA;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Exercise3_Comparator {

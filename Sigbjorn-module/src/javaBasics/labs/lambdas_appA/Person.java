@@ -1,4 +1,4 @@
-package javaBasics.lab_lambdas;
+package javaBasics.labs.lambdas_appA;
 
 public class Person {
 

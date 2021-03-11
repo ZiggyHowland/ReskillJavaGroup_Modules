@@ -1,4 +1,4 @@
-package javaBasics.lab_lambdas;
+package javaBasics.labs.lambdas_appA;
 
 import java.util.Arrays;
 import java.util.List;
